@@ -6,6 +6,9 @@ const port = 3000
 app.set('view engine', 'ejs');
 app.set('views', './views')
 
+// app uses static files from 'public' folder
+app.use(express.static(__dirname+'/public'))
+
 //Root URL('/') 경로에 대한 Get 요청
 app.get('/', function (req, res) {
     res.render('index');
