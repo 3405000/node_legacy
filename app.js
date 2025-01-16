@@ -45,9 +45,9 @@ app.get('/', (req, res) => {
     res.render('index');
 })
 
-app.get('/profile', (req, res) => {
-  res.render('pages/profile');
-})
+// app.get('/profile', (req, res) => {
+//   res.render('pages/profile');
+// })
 
 app.get('/visit', (req, res) => {
   res.render('pages/visit');
