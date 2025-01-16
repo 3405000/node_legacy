@@ -1,0 +1,36 @@
+<%- include('../layouts/header.ejs') %>
+
+<h2 class="page-title">문의 목록입니다.</h2>
+
+<div class="contact-container">
+    <% lists.forEach(function(item) { %>
+    <div class="contact-item">
+        <!-- 첫 번째 줄: 이름, 전화번호, 메일 (한 줄로 배치) -->
+        <div class="contact-row">
+            <div><%= item.name %><strong>의 방명록</strong></div>
+            <div><%= item.phone %></div>
+            <div><%= item.email %></div>
+        </div>
+
+        <!-- 두 번째 줄: 내용 -->
+        <div class="contact-row">
+            <div>"<%= item.memo %>"</div>
+        </div>
+
+        <!-- 세 번째 줄: 작성일, 수정일, 읽음, 삭제 -->
+        <div class="contact-row">
+            <div><strong>작성 </strong> <span class="create-at"><%= item.create_at %></span></div>
+            <div><strong>수정 </strong> <span class="modify-at"><%= item.modify_at %></span></div>
+            <div><strong>상태 </strong> <%= item.status %></div>
+            <div>
+                <button class="btn btn-update" data-id="<%= item.id %>" onclick="updateContact(this.dataset.id)">읽었어요</button>
+                <button class="btn btn-delete" data-id="<%= item.id %>" onclick="deleteContact(this.dataset.id)">삭제할래요</button>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</div>
+
+<script src='../../public/js/contactList.js'></script>
+
+<%- include('../layouts/footer.ejs') %>

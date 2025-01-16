@@ -1,0 +1,33 @@
+<%-include('../layouts/header.ejs')%>
+
+<h2>방명록을 남겨주세요.</h2>
+
+<form action="api/contact" method="post" onsubmit="return validateForm()">
+    <ul>
+        <li style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name">
+            <span id="name-error" class="error-message" style="display: none;">이름을 알려주세요.</span>
+        </li>
+        <li style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <label for="phone">연락처</label>
+            <input type="text" id="phone" name="phone">
+        </li>
+        <li style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <label for="email">이메일</label>
+            <input type="text" id="email" name="email">
+        </li>
+        <li style="display: flex; flex-direction: column; margin-bottom: 10px;">
+            <label for="memo">내용</label>
+            <textarea id="memo" name="memo" cols="50" rows="10"></textarea>
+            <span id="memo-error" class="error-message" style="display: none;">내용을 입력해주세요.</span>
+        </li>
+        <button type="submit">남기기</button>
+    </ul>
+    <a href="/contactList">다른 사람들의 방명록 보기</a>
+</form>
+
+
+<script src='../../public/js/contact.js'></script>
+
+<%-include('../layouts/footer.ejs')%>

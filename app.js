@@ -6,6 +6,9 @@ require('dotenv').config();
 const app = express()
 const port = 3000
 
+// 정적 파일 서빙
+app.use(express.static('public'));
+
 app.set('view engine', 'ejs')
 app.set('views', './views')
 // static file serving
@@ -42,16 +45,24 @@ app.get('/', (req, res) => {
     res.render('index');
 })
 
+app.get('/profile', (req, res) => {
+  res.render('pages/profile');
+})
+
+app.get('/visit', (req, res) => {
+  res.render('pages/visit');
+})
+
 app.get('/blog', (req, res) => {
-    res.render('blog');
+    res.render('pages/blog');
 })
 
 app.get('/users', (req, res) => {
-    res.render('users');
+    res.render('pages/users');
 })
 
 app.get('/contact', (req, res) => {
-    res.render('contact');
+    res.render('pages/contact');
 })
 
 app.post('/api/contact', (req, res) => {
@@ -69,7 +80,7 @@ app.post('/api/contact', (req, res) => {
           res.status(500).send('내부 서버 오류')
       } else {
           console.log('데이터가 삽입 되었습니다.');
-          res.send("<script> alert('문의사항이 등록되었습니다.'); location.href='/' </script>")
+          res.send("<script> alert('방명록이 등록되었습니다.'); location.href='/' </script>")
       }
   })
 })
@@ -84,7 +95,7 @@ app.get('/contactList', (req, res) => {
       } else {
           console.log('데이터가 조회 되었습니다.');
           console.log(result);
-          res.render('contactList', {lists:result});
+          res.render('pages/contactList', {lists:result});
       }
   });
 });

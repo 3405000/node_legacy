@@ -1,0 +1,74 @@
+<%-include('../layouts/header.ejs')%>
+
+    <h2>재은이의 집에 살고있는...</h2>
+    <div class="image-container">
+        <div class="image-item" data-name="전남친 강아지" data-description="제 친구 유진이는 전남자친구와 인형뽑기하는 것을 너무 좋아해서 집에 인형이 수십개가 있었는데요, 헤어지고 나니까 다 꼴보기 싫다고 저에게 준 귀여운 강아지 인형입니다.">
+            <img src="/src/image_1.jpeg" alt="전남친 강아지">
+            <div class="overlay">
+                <span class="image-name">전남친 강아지</span>
+            </div>
+        </div>
+        <div class="image-item" data-name="반려돌" data-description="혼자 밤산책을 하다가 길에서 우연히 주운 반려돌입니다. 모난 곳 없이 둥글고 납작한 것이 특징입니다.">
+            <img src="/src/image_2.jpeg" alt="반려돌">
+            <div class="overlay">
+                <span class="image-name">반려돌</span>
+            </div>
+        </div>
+        <div class="image-item" data-name="쿨쿨따 커비" data-description="전남자친구가 저에게 헤어지자고 하면서 준(?) 일본 여행 기념품입니다. 버릴까 싶었지만 너무 보드라워서 냅뒀습니다.">
+            <img src="/src/image_3.jpeg" alt="쿨쿨따 커비">
+            <div class="overlay">
+                <span class="image-name">쿨쿨따 커비</span>
+            </div>
+        </div>
+        <div class="image-item" data-name="먼작귀 후리가케" data-description="1년 전 일본 여행을 갔을 당시 기념품으로 구매한 후리가케입니다. 유통기한이 지났지만 귀여워서 밥에 뿌려먹고 있습니다. 약간 물고기 밥 냄새가 나는 것 같아요..">
+            <img src="/src/image_4.jpeg" alt="먼작귀 후리가케">
+            <div class="overlay">
+                <span class="image-name">먼작귀 후리가케</span>
+            </div>
+        </div>
+        <div class="image-item" data-name="새 양말" data-description="크리스마스에 신으려고 아껴두었는데, 한 짝을 잃어버려서 아직 한 번도 못 신은 따수워보이는 양말입니다.">
+            <img src="/src/image_5.jpeg" alt="새 양말">
+            <div class="overlay">
+                <span class="image-name">새 양말</span>
+            </div>
+        </div>
+    </div>
+    
+    <div id="image-modal" class="modal">
+        <div class="modal-content">
+            <img id="modal-image" src="" alt="">
+            <div class="modal-info">
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <script src='../../public/js/users.js'></script> -->
+     <script>
+        document.querySelectorAll('.image-item').forEach(item => {
+    item.addEventListener('click', function() {
+        // 모달을 표시
+        const imageSrc = item.querySelector('img').src;
+        const imageName = item.dataset.name;
+        const imageDescription = item.dataset.description;
+
+        // 모달 내용 업데이트
+        document.getElementById('modal-image').src = imageSrc;
+        document.getElementById('modal-title').innerText = imageName;
+        document.getElementById('modal-description').innerText = imageDescription;
+
+        // 모달 열기
+        document.getElementById('image-modal').style.display = 'flex';
+    });
+});
+
+// 모달 닫기 기능
+document.getElementById('image-modal').addEventListener('click', function(event) {
+    if (event.target === this) {
+        this.style.display = 'none';
+    }
+});
+     </script>
+    
+<%-include('../layouts/footer.ejs')%>
