@@ -91,6 +91,24 @@ button[type="submit"]:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+a {
+    text-decoration: none; /* 언더라인 없애기 */
+    color: black;
+}
+
+/* header */
+nav {
+    text-align: right;
+    margin: 3px;
+}
+
+nav a.active {
+    padding: 2px;
+    background-color: black;
+    color: white; /* 원하는 색상으로 설정 */
+    font-weight: bold;
+}
+
 /* contact Styles */
 .contact-container {
     margin: 30px;
@@ -236,11 +254,11 @@ input:invalid {
 .btn-delete {
     background-color: transparent;
     color: black;
-    border: 1px solid black;
+    box-shadow: 0 0 0 1px black inset;
 }
 
 .btn-delete:hover {
-    background-color: #c82333;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* 구글 맵 iframe을 반응형으로 만들기 위한 스타일 */
