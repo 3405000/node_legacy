@@ -1,5 +1,21 @@
 <%-include('../layouts/header.ejs')%>
 
-    <h2>블로그 입니다.</h2>
+    <h2>블로그 ..</h2>
+    <% const items = [
+        "/src/image_b1.jpeg",
+        "/src/image_b2.jpeg",
+        "/src/image_b3.jpeg",
+        "/src/image_b4.jpeg",
+        "/src/image_b5.jpeg",
+        "/src/image_b6.jpeg",
+        "/src/image_b7.jpeg",
+        "/src/image_b8.jpeg",
+        ]; %>
+    <div class="image-slider" id="slider">
+        <% items.forEach(function(image, index) { %>
+            <div class="image-slide" id="slide-<%= index %>" style="background-image: url('<%= image %>');"></div>
+        <% }); %>
+    </div>
+    <script src="/js/blog.js"></script>
 
 <%-include('../layouts/footer.ejs')%>

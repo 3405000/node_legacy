@@ -280,6 +280,27 @@ input:invalid {
     height: 100%;       /* 부모 요소 높이에 맞게 채움 */
 }
 
+/* blog */
+body {
+    margin: 0;
+    /* overflow: hidden; */
+}
+
+.image-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 80%;
+}
+
+.image-slide {
+    flex: 0 0 100%;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    width: 80%;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     form {
