@@ -57,9 +57,11 @@ app.get('/blog', (req, res) => {
     res.render('pages/blog');
 })
 
-app.get('/users', (req, res) => {
+
+
+aapp.get('/users', (req, res) => {
     res.render('pages/users');
-})
+});
 
 app.get('/contact', (req, res) => {
     res.render('pages/contact');
