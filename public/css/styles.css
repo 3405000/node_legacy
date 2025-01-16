@@ -88,7 +88,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: rgb(36, 36, 36);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* contact Styles */
@@ -111,7 +111,7 @@ button[type="submit"]:hover {
 }
 
 .contact-row div {
-    width: 30%; /* 각 항목의 너비 */
+    width: 100%; /* 각 항목의 너비 */
 }
 
 .contact-row button {
@@ -155,7 +155,7 @@ input:invalid {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정색 */
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -225,21 +225,41 @@ input:invalid {
 }
 
 .btn-update {
-    background-color: #28a745;
+    background-color: black;
     color: white;
 }
 
 .btn-update:hover {
-    background-color: #218838;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .btn-delete {
-    background-color: #dc3545;
-    color: white;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
 }
 
 .btn-delete:hover {
     background-color: #c82333;
+}
+
+/* 구글 맵 iframe을 반응형으로 만들기 위한 스타일 */
+.map-container {
+    max-width: 600px;   /* 최대 너비를 600px로 설정 */
+    width: 100%;        /* 화면 크기에 맞춰 너비를 100%로 설정 */
+    height: 0;
+    padding-bottom: 75%; /* 높이를 16:9 비율로 설정 (600px x 337px) */
+    position: relative; /* iframe의 부모 요소에 상대 위치를 설정 */
+    overflow: hidden;
+}
+
+.map-container iframe {
+    position: absolute; /* iframe을 부모 요소에 절대 위치로 배치 */
+    top: 0;
+    left: 0;
+    width: 100%;        /* 부모 요소 너비에 맞게 채움 */
+    max-height: 400px;
+    height: 100%;       /* 부모 요소 높이에 맞게 채움 */
 }
 
 /* Responsive Design */

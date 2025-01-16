@@ -8,8 +8,13 @@
         <!-- 첫 번째 줄: 이름, 전화번호, 메일 (한 줄로 배치) -->
         <div class="contact-row">
             <div><%= item.name %><strong>의 방명록</strong></div>
-            <div><%= item.phone %></div>
-            <div><%= item.email %></div>
+            <div>
+                <%= item.phone %>
+                <% if (item.phone != "" && item.email != "") { %>
+                    |
+                <% } %>
+                <%= item.email %>
+            </div>
         </div>
 
         <!-- 두 번째 줄: 내용 -->
@@ -19,8 +24,13 @@
 
         <!-- 세 번째 줄: 작성일, 수정일, 읽음, 삭제 -->
         <div class="contact-row">
-            <div><strong>작성 </strong> <span class="create-at"><%= item.create_at %></span></div>
-            <div><strong>수정 </strong> <span class="modify-at"><%= item.modify_at %></span></div>
+            <div>
+                <strong>작성 </strong> <span class="create-at"><%= item.create_at %></span>
+                <!-- 날짜 비교: getTime() 메서드로 날짜와 시간 정확하게 비교 -->
+                <% if (item.create_at.getTime() !== item.modify_at.getTime()) { %>
+                    <strong>(수정 </strong> <span class="modify-at"><%= item.modify_at %></span>)
+                <% } %>
+            </div>
             <div><strong>상태 </strong> <%= item.status %></div>
             <div>
                 <button class="btn btn-update" data-id="<%= item.id %>" onclick="updateContact(this.dataset.id)">읽었어요</button>
@@ -31,6 +41,6 @@
     <% }) %>
 </div>
 
-<script src='../../public/js/contactList.js'></script>
+<script src='/js/contactList.js'></script>
 
 <%- include('../layouts/footer.ejs') %>
