@@ -1,3 +1,31 @@
+// 게시물 추가 처리
+async function createContact() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const memo = document.getElementById('memo').value;
+
+    const data = {
+        name: name,
+        email: email,
+        phone: phone,
+        memo: memo,
+    }
+
+    try {
+        const response = await fetch(`/api/contact/`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        if (!response.ok) throw new Error('데이터 추가 오류');
+        alert('문의사항이 추가되었습니다.');
+        location.reload();
+    } catch (error) {
+        console.error('추가 오류:', error);
+    }
+}
+
 function validateForm() {
     const nameInput = document.getElementById('name');
     const nameError = document.getElementById('name-error');

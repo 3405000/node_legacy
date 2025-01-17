@@ -2,6 +2,10 @@ const getIndexView = (req, res) => {
     res.render('index')
 }
 
+const getContactView = (req, res) => {
+    res.render('pages/contact')
+}
+
 // app.get('/visit', (req, res) => {
 //     res.render('pages/visit');
 //   })
@@ -21,5 +25,6 @@ const getIndexView = (req, res) => {
 //   })
 
 module.exports = {
-    getIndexView
+    getIndexView,
+    getContactView,
 }
