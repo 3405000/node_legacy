@@ -7,6 +7,7 @@ const viewController = require('../controllers/viewController')
 // return Main view
 router.get('/', viewController.getIndexView);
 router.get('/contact', viewController.getContactView);
+router.get('/contactList', viewController.getContactListView);
 
 /* route to api controllers */
 // contact Data Read

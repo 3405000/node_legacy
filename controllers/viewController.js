@@ -1,3 +1,5 @@
+const contactModel = require('../models/contactModel')
+
 const getIndexView = (req, res) => {
     res.render('index')
 }
@@ -5,6 +7,17 @@ const getIndexView = (req, res) => {
 const getContactView = (req, res) => {
     res.render('pages/contact')
 }
+
+const getContactListView = (req, res) => {
+    contactModel.getContacts((err, result) => {
+        if (err) {
+            console.error('데이터 조회 중 에러 발생', err);
+            return res.status(500).send('내부 서버 오류');
+        }
+        res.render('pages/contactList', { lists: result });
+    });
+}
+
 
 // app.get('/visit', (req, res) => {
 //     res.render('pages/visit');
@@ -27,4 +40,5 @@ const getContactView = (req, res) => {
 module.exports = {
     getIndexView,
     getContactView,
+    getContactListView,
 }
